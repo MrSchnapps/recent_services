@@ -50,11 +50,11 @@ build_img wordpress
 build_img phpmyadmin
 build_img grafana
 build_img ftps
-#build_img influxdb
+build_img influxdb
 
 build_service nginx
 build_service wordpress
 build_service phpmyadmin
 build_service grafana
 build_service ftps
-#build_service influxdb
+build_service influxdb

@@ -30,10 +30,10 @@ RUN mkdir -p /etc/ssl/certs/private
 RUN ssh-keygen -A
 RUN yes "" | openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/certs/private/ssl_nginx.key -out /etc/ssl/certs/ssl_nginx.certs
 
-#RUN curl 'https://dl.influxdata.com/telegraf/releases/telegraf-1.16.0_linux_i386.tar.gz' > telegraf.tar.gz && \
-   # tar xvf telegraf.tar.gz && \
-    #mv 'telegraf-1.16.0' telegraf
-#COPY srcs/telegraf.conf /etc/telegraf/telegraf.conf
+RUN curl 'https://dl.influxdata.com/telegraf/releases/telegraf-1.16.0_linux_i386.tar.gz' > telegraf.tar.gz && \
+    tar xvf telegraf.tar.gz && \
+    mv 'telegraf-1.16.0' telegraf
+COPY srcs/telegraf.conf /etc/telegraf/telegraf.conf
 
 EXPOSE 22
 EXPOSE 80

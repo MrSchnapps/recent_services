@@ -3,7 +3,7 @@
 echo "root:password" | chpasswd
 echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
 
-#/telegraf/usr/bin/telegraf &
+/telegraf/usr/bin/telegraf &
 
 openrc
 touch /run/openrc/softlevel

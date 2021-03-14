@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#/telegraf/usr/bin/telegraf &
+/telegraf/usr/bin/telegraf &
 
 openrc
 touch /run/openrc/softlevel
