@@ -1,0 +1,2 @@
+
+#/telegraf/usr/bin/telegraf &
