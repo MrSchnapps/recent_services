@@ -15,6 +15,10 @@ RUN  unzip phpMyAdmin.zip \
 && mv phpMyAdmin-5.0.2-all-languages phpMyAdmin \
 && mv phpMyAdmin var/www
 
+COPY srcs/config.inc.php /var/www
+RUN mkdir /etc/phpmyadmin
+COPY srcs/config.inc.php /etc/phpmyadmin
+
 COPY srcs/nginx.conf /etc/nginx/conf.d
 RUN mkdir -p /run/nginx \
 && rm /etc/nginx/conf.d/default.conf
