@@ -11,8 +11,8 @@ tar xvf telegraf.tar.gz && \
 mv 'telegraf-1.16.0' telegraf
 COPY srcs/telegraf.conf /etc/telegraf/telegraf.conf
 
-COPY mysql/srcs/my.cnf /etc/my.cnf
-COPY mysql/srcs/init_db.sql ./
+COPY srcs/my.cnf /etc/my.cnf
+COPY srcs/init_db.sql ./
 
 COPY srcs/init.sh /
 RUN chmod +x init.sh

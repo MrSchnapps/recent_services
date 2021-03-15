@@ -17,6 +17,8 @@ COPY srcs/grafana.db /grafana/data/grafana.db
 COPY srcs/init.sh /
 RUN chmod +x init.sh
 
+COPY srcs/datasources.yaml /usr/share/grafana/conf/provisioning/datasources/
+
 EXPOSE 3000
 
 CMD /init.sh

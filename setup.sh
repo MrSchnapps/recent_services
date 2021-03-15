@@ -19,8 +19,6 @@ build_service() {
     echo
 }
 
-export MINIKUBE_HOME=/Users/judecuyp/goinfre
-
 print_separate "Starting Minikube"
 minikube delete
 minikube start --driver=virtualbox
