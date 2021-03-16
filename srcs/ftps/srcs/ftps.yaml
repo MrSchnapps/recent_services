@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ftps-deployment
+  name: ftps
   labels:
     apps: ftps
 spec:
@@ -23,6 +23,12 @@ spec:
         imagePullPolicy: Never
         ports:
           - containerPort: 21
+          - containerPort: 21000
+          - containerPort: 21001
+          - containerPort: 21002
+          - containerPort: 21003
+          - containerPort: 21004
+          - containerPort: 21005
 
 ---
 
@@ -36,9 +42,22 @@ metadata:
     metallb.universe.tf/allow-shared-ip: shared
 spec:
   type: LoadBalancer
+  loadBalancerIP: 192.168.99.230
   selector:
     app: ftps
   ports:
     - name: ftps
       port: 21
       targetPort: 21
+    - name: ftps-0
+      port: 21000
+    - name: ftps-1
+      port: 21001
+    - name: ftps-2
+      port: 21002
+    - name: ftps-3
+      port: 21003
+    - name: ftps-4
+      port: 21004
+    - name: ftps-5
+      port: 21005

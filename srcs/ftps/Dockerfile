@@ -5,9 +5,12 @@ RUN apk update \
 RUN apk add --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ \
     pure-ftpd openssl curl
 
-RUN adduser -D -h /home/jules jules && \
-    echo -e 'pass\npass' | passwd jules && \
-    echo -e 'pass\npass' | pure-pw useradd jules -u jules -g jules -d /home/jules
+#RUN adduser -D -h /home/jules jules && \
+#   echo -e 'pass\npass' | passwd jules && \
+#  echo -e 'pass\npass' | pure-pw useradd jules -u jules -g jules -d /home/jules
+
+RUN adduser -D jules
+RUN echo "jules:jules" | chpasswd
 
 RUN openssl req -x509 -nodes -days 7300 -subj "/C=FR/ST=fr/L=Belgiaque/O=19/CN=judecuyp" \
     -newkey rsa:2048 -keyout /etc/ssl/private/pure-ftpd.pem -out /etc/ssl/private/pure-ftpd.pem
