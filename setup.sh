@@ -45,18 +45,24 @@ kubectl apply -f srcs/metallb-config.yaml
 
 print_separate
 
-build_img nginx
+#build_img nginx
+build_img mysql
 build_img wordpress
 build_img phpmyadmin
-build_img grafana
-build_img ftps
-build_img influxdb
-build_img mysql
+#build_img grafana
+#build_img ftps
+#build_img influxdb
 
-build_service nginx
+#build_service nginx
+build_service mysql
 build_service wordpress
 build_service phpmyadmin
-build_service grafana
-build_service ftps
-build_service influxdb
-build_service mysql
+#build_service grafana
+#build_service ftps
+#build_service influxdb
+
+#sleep 30
+#print_separate "Add wordpress db"
+#kubectl exec -i `kubectl get pods | grep -o "\S*mysql\S*"` -- mysql wordpress -u root < srcs/mysql/srcs/wordpress.sql
+
+#minikube dashboard &
