@@ -7,9 +7,6 @@ RUN apk update \
 RUN mkdir -p /run/mysqld
 COPY srcs/my.cnf /etc/
 
-#RUN mkdir -p /run/mysqld && mv my.cnf /etc/
-#&& touch /run/mysqld/mysqld.sock
-
 RUN curl 'https://dl.influxdata.com/telegraf/releases/telegraf-1.16.0_linux_i386.tar.gz' > telegraf.tar.gz && \
 tar xvf telegraf.tar.gz && \
 mv 'telegraf-1.16.0' telegraf
