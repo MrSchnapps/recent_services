@@ -70,5 +70,3 @@ sleep 30
 
 print_separate "Add wordpress db"
 kubectl exec -i `kubectl get pods | grep -o "\S*mysql\S*"` -- mysql wordpress -u root < srcs/mysql/srcs/wordpress.sql
-
-#minikube dashboard &
